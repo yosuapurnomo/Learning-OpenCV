@@ -35,7 +35,8 @@ def get_detected_lanes(image):
 
     cropped_image = region_crop(canny_image, np.array([Triangle_pointer], np.int32))
 
-    line_detect = cv2.HoughLinesP(cropped_image, rho=2, theta=np.pi/180, threshold=50, lines=np.array([]), minLineLength=40, maxLineGap=150)
+    line_detect = cv2.HoughLinesP(cropped_image, rho=2, theta=np.pi/180, threshold=50,
+                                  lines=np.array([]), minLineLength=40, maxLineGap=150)
 
     line_image = draw_line(image, line_detect)
     return line_image
