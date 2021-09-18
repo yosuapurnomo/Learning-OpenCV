@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 
-original_image = cv2.imread('../Data Testing/bird.jpg')
+original_image = cv2.imread('../Data Training/bird.jpg')
 
 kernel = np.ones((5, 5)) / 20
 print(kernel)
