@@ -1,4 +1,5 @@
 import numpy as np
+from scipy import ndimage
 
 class gradient:
     def __init__(self, image):
@@ -46,11 +47,13 @@ class gradient:
         return newImage
 
     def sobel_filters(self):
-        Ix = self.konvolusi(self.Kx)
-        Iy = self.konvolusi(self.Ky)
+        # Ix = self.konvolusi(self.Kx)
+        # Iy = self.konvolusi(self.Ky)
+        Ix = ndimage.filters.convolve(self.image, self.Kx)
+        Iy = ndimage.filters.convolve(self.image, self.Ky)
 
         G = np.hypot(Ix, Iy)
         G = G / G.max() * 255
         theta = np.arctan2(Iy, Ix)
-        image = np.array(G.astype(int), dtype=np.uint8)
+        image = np.array(G, dtype=np.uint8)
         return (image, theta)

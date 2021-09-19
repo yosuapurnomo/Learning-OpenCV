@@ -3,6 +3,7 @@ import numpy as np
 class grayscale:
     def __init__(self, image):
         self.image = image
+        print(image.shape)
     def grayScale(self):
         newImage = np.zeros((self.image.shape[0], self.image.shape[1]))
         for y in range(self.image.shape[0]):

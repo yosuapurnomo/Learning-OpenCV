@@ -45,7 +45,6 @@ def deteksi_garis(image):
         (lebar/2, tinggi*0.65),
         (lebar, tinggi)
     ]
-
     cropped_image = pemotongan_pola(canny_image, np.array([titik_segitiga], np.int32))
 
     # cv2.HoughLinesP(hasil gambar yang tlah dipotong, rho, theta, ambang batas, minimal lebar garis, maximal ketebalan garis)
